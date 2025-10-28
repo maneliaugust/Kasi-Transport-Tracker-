@@ -1,0 +1,4 @@
+-- DROP TABLE IF EXISTS trips;
+-- DROP TABLE IF EXISTS routes;
+SELECT * FROM routes
+;

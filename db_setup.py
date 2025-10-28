@@ -8,7 +8,7 @@ def create_database():
         user="postgres",
         password="mypassword"
     )
-    print("Database created successfully")
+    print("Database connection has been created ")
     return conn
 
 
@@ -34,6 +34,7 @@ def create_tables():
     """
 
 
+
     create_trips_table = """
     CREATE TABLE IF NOT EXISTS trips(
     id SERIAL PRIMARY KEY,
@@ -45,12 +46,13 @@ def create_tables():
 );
 """
 
+
     cursor.execute(create_drivers_table)
     cursor.execute(create_routes_table)
     cursor.execute(create_trips_table)
 
     conn.commit()
-    print("Database setup completed successfully")
+    print("Database setup complete.")
 
     cursor.close()
     conn.close()
@@ -62,6 +64,7 @@ def add_driver(cursor, name, taxi_number):
     """
     cursor.execute(insert_query, (name, taxi_number))
     
+
 
 def add_route(cursor, origin, destination, fare):
     cursor.execute("""
@@ -92,6 +95,5 @@ def record_trip(cursor, driver_id, route_id, passengers):
         'passengers': passengers,
         'total_amount': total_amount
     }
-
 
 create_tables()
